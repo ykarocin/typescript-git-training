@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typescript Training</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="tasks.html">Tasks</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="container">
+          <h1>Typescript Training</h1>
+          <h2>Tasks</h2>
+
+          <ul id="task-list"></ul>
+
+          <input type="text" id="task-name" placeholder="Add a Task">
+          <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <script>
+          function addTask() {
+            const input = document.getElementById('task-name');
+            const itemTask = input.value;
+
+            if (itemTask.trim() !== "") {
+              const list = document.getElementById('task-list');
+              const listItem = createTaskItem(itemTask);
+
+              list.appendChild(listItem);
+
+              input.value = '';
+            }
+          }
+
+          function createTaskItem(task) {
+              const listItem = document.createElement('li');
+              const taskText = document.createElement('span');
+
+              taskText.textContent = task;
+
+              const removeButton = document.createElement('button');
+              removeButton.textContent = 'Remove';
+              removeButton.onclick = function() {
+                listItem.remove();
+              };
+
+              listItem.appendChild(taskText);
+              listItem.appendChild(removeButton);
+
+              return listItem;
+            }
+        </script>
+    </main>
+</body>
+</html>
