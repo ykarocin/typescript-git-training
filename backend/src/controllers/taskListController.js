@@ -28,7 +28,7 @@ module.exports = {
         const taskDeleted = await taskList.findOneAndDelete({_id : id});
 
         if (!taskDeleted){
-            return response.status(401).json({error: "Não foi encontrado a task para deletar!"});
+            return response.status(204).json({error: "Não foi encontrado a task para deletar!"});
         }else{
             return response.json(taskDeleted);
         }
