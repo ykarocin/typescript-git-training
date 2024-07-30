@@ -20,7 +20,6 @@ export default function Tasks() {
       const newIndex = tasks.length > 0 ? tasks[tasks.length - 1].index + 1 : 0;
       const newTaskObject = { _id: '', index: newIndex, task: newTask }; 
 
-      setTasks([...tasks, newTaskObject]);
       setNewTask('');
 
       const response = await api.post('/taskList', {
